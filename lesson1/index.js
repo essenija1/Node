@@ -10,7 +10,7 @@ for (let i = 2; i <= n; i++) {
     if ((i % j == 0) && (j != i)) {
       break;
     } else {
-      console.log(i);
+      console.log(colors.rainbow(i));
       break;
     }
   }
