@@ -1,0 +1,32 @@
+console.log('Record 1');
+
+setTimeout(() => {
+    console.log('Record 2');
+      Promise.resolve().then(() => {
+        setTimeout(() => {
+            сonsole.log('Record 3');
+               Promise.resolve().then(() => {
+                console.log('Record 4');
+            });
+        });
+    });
+});
+console.log('Record 5');
+   Promise.resolve().then(() => 
+      Promise.resolve().then(() => 
+         console.log('Record 6')
+));
+
+// выводит:
+// Record 1
+// Record 5
+// Record 6
+// Record 2
+// C:\Users\nekhaychuk\Desktop\loadscript\node\index.js:133
+//             сonsole.log('Record 3');
+//             ^
+
+// ReferenceError: сonsole is not defined
+//     at Timeout._onTimeout (C:\Users\nekhaychuk\Desktop\loadscript\node\index.js:133:13)
+//     at listOnTimeout (node:internal/timers:557:17)
+//     at processTimers (node:internal/timers:500:7)
